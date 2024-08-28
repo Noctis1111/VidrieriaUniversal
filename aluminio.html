@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+
+        <title>VIDRIERIA - UNIVERSAL</title>   <!-- NOMBRE DE LA PAGUINA -->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        
+       
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+    </head>
+
+
+    <body id="page-top">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+            <div class="container px-4 px-lg-5">
+                <a class="navbar-brand" href="index.html">VIDRIERIA UNIVERSAL</a>
+                <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fas fa-bars"></i>
+                </button>
+
+
+
+                     <!-- MENU -->
+              <div class="collapse navbar-collapse" id="navbarResponsive">
+                  <ul class="navbar-nav ms-auto">
+                      <li class="nav-item"><a class="nav-link" href="vidrio.html">VIDRIO</a></li>
+                      <li class="nav-item"><a class="nav-link" href="ventanas.html" >VENTANAS</a></li>
+                      <li class="nav-item"><a class="nav-link" href="puertas.html" >PUERTAS</a></li>
+                      <li class="nav-item"><a class="nav-link" href="vitrinas.html">VITRINAS</a></li>
+                      <li class="nav-item"><a class="nav-link" href="aluminio.html">ALUMINIO</a></li>
+                      <li class="nav-item"><a class="nav-link" href="galeria.html">GALERIA</a></li>
+                 </ul>
+              </div>
+            </div>
+        </nav>
+        <!-- Masthead--><!-- Masthead--><!-- Masthead--><!-- Masthead--><!-- Masthead--><!-- Masthead--><!-- Masthead-->
+        <!-- Masthead--><!-- Masthead--><!-- Masthead--><!-- Masthead--><!-- Masthead--><!-- Masthead--><!-- Masthead-->
+        <!-- Masthead--><!-- Masthead--><!-- Masthead--><!-- Masthead--><!-- Masthead--><!-- Masthead--><!-- Masthead-->
+<header class="masthead">
+    <div class="container justify-content-center px-4 px-lg-5 d-flex h-100 align-items-center">
+        <main>
+            <h2 class="mx-auto my-5 text-uppercase text-center">Aluminio</h2>
+        <div class="row justify-content-center">
+
+
+
+
+
+
+
+            <div class="col-5 mx-auto text-center">
+
+                <h4 class="text-white-50">
+                    <label class="text-white-50 form-label" for="longitud">Longitud (cm):</label>
+                </h4>
+                <input type="number" class="form-control" id="longitud" placeholder="Ingrese la longitud del material">
+
+
+                <h4 class="text-white-50">
+                    <label class="text-white-50 form-label mb-4" for="tipoMaterial">Tipo de Material:</label>
+                 </h4>
+                 <select class="form-select mb-4" id="tipoMaterial">
+                    <option value="25" data-category="h">H (25 por metro)</option>
+                    <option value="3.50" data-category="felfa">Felfa (3.50 por metro)</option>
+                    <option value="3" data-category="portaFelfa">Porta Felfa (3 por metro)</option>
+                 </select>
+
+
+
+
+
+
+
+
+                <div class="text-white-50 mt-3 mb-3 text-center" id="resultado"></div>
+                <div class="text-white-50 mt-2 mb-3 text-center" id="totalGuardado"></div>
+
+
+
+                <div class="row container justify-content-center">
+                    <div class="col text-center">
+                        <button type="button" class="opacity-75 btn btn-primary me-2" onclick="calcularPrecio()">Calcular Precio</button>
+                    </div>
+                    <div class="col text-center">
+                        <button type="button" class="opacity-75 btn btn-secondary" onclick="guardarPrecio()">Guardar Precio</button>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+            <div class="col-5 mx-auto text-center">
+                <h4 class="text-white-50 text-uppercase text-center">Datos almacenados</h4>
+                <h4 class="text-white-50 mx-auto mt-2">H:</h4>
+                <ul id="listaH" class="list-group mb-3 text-white-50"></ul>
+
+                <h4 class="text-white-50 mx-auto mt-2">Felfa:</h4>
+                <ul id="listaFelfa" class="list-group mb-3 text-white-50"></ul>
+
+                <h4 class="text-white-50 mx-auto mt-2">Porta Felfa:</h4>
+                <ul id="listaPortaFelfa" class="list-group mb-3 text-white-50"></ul>
+            </div>
+
+
+
+
+
+
+
+        </div>
+        </main>
+    </div>
+    </header>
+
+
+<script>
+        let hGuardado = [];
+        let felfaGuardado = [];
+        let portaFelfaGuardado = [];
+
+        function calcularPrecio() {
+            const longitud = parseFloat(document.getElementById('longitud').value);
+            const tipoMaterial = document.getElementById('tipoMaterial');
+            const precioPorMetro = parseFloat(tipoMaterial.value);
+            const categoria = tipoMaterial.selectedOptions[0].getAttribute('data-category');
+
+            if (isNaN(longitud) || longitud <= 0) {
+                alert('Por favor, ingrese una longitud válida.');
+                return;
+            }
+
+            const precioTotal = (longitud / 100) * precioPorMetro;
+            document.getElementById('resultado').innerHTML = `Costo Total: <strong>S/.${precioTotal.toFixed(2)}</strong>`;
+
+            return { longitud, precioTotal, categoria };
+        }
+
+        function guardarPrecio() {
+            const material = calcularPrecio();
+            if (material) {
+                if (material.categoria === "h") {
+                    hGuardado.push(material);
+                    actualizarListaPrecios(hGuardado, "listaH");
+                } else if (material.categoria === "felfa") {
+                    felfaGuardado.push(material);
+                    actualizarListaPrecios(felfaGuardado, "listaFelfa");
+                } else if (material.categoria === "portaFelfa") {
+                    portaFelfaGuardado.push(material);
+                    actualizarListaPrecios(portaFelfaGuardado, "listaPortaFelfa");
+                }
+                calcularTotalGuardado();
+            }
+        }
+
+        function actualizarListaPrecios(array, listaId) {
+            const lista = document.getElementById(listaId);
+            lista.innerHTML = '';
+            array.forEach((material, index) => {
+                const listItem = document.createElement('li');
+                listItem.className = "list-group-item";
+                listItem.innerHTML = `${index + 1}. Longitud: ${material.longitud} cm - Precio: <strong>S/.${material.precioTotal.toFixed(2)}</strong>`;
+                lista.appendChild(listItem);
+            });
+        }
+
+        function calcularTotalGuardado() {
+            const totalH = hGuardado.reduce((sum, material) => sum + material.precioTotal, 0);
+            const totalFelfa = felfaGuardado.reduce((sum, material) => sum + material.precioTotal, 0);
+            const totalPortaFelfa = portaFelfaGuardado.reduce((sum, material) => sum + material.precioTotal, 0);
+            const total = totalH + totalFelfa + totalPortaFelfa;
+
+            document.getElementById('totalGuardado').innerHTML = 'Total Acumulado: <strong>S/.' + total.toFixed(2) + '</strong>';
+        }
+    </script>
+</body>
+</html>

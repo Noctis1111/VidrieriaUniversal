@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+
+        <title>VIDRIERIA - UNIVERSAL</title>   <!-- NOMBRE DE LA PAGUINA -->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        
+       
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+    </head>
+
+
+    <body id="page-top">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+            <div class="container px-4 px-lg-5">
+                <a class="navbar-brand" href="index.html">VIDRIERIA UNIVERSAL</a>
+                <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fas fa-bars"></i>
+                </button>
+
+
+
+                     <!-- MENU -->
+              <div class="collapse navbar-collapse" id="navbarResponsive">
+                  <ul class="navbar-nav ms-auto">
+                      <li class="nav-item"><a class="nav-link" href="vidrio.html">VIDRIO</a></li>
+                      <li class="nav-item"><a class="nav-link" href="ventanas.html" >VENTANAS</a></li>
+                      <li class="nav-item"><a class="nav-link" href="puertas.html" >PUERTAS</a></li>
+                      <li class="nav-item"><a class="nav-link" href="vitrinas.html">VITRINAS</a></li>
+                      <li class="nav-item"><a class="nav-link" href="aluminio.html">ALUMINIO</a></li>
+                      <li class="nav-item"><a class="nav-link" href="galeria.html">GALERIA</a></li>
+                 </ul>
+              </div>
+
+
+
+            </div>
+        </nav>
+        <!-- Masthead-->
+
+
+
+
+<header class="masthead">
+    <div class="container justify-content-center px-4 px-lg-5 d-flex h-100 align-items-center">
+        <main>
+            <h2 class="mx-auto my-5 text-uppercase text-center">Vitrinas</h2>
+        <div class="row">
+            <div class="col-4 mx-auto text-center">
+                <h4 class="text-white-50 text-center">Vitrinas</h4>
+
+
+                
+                <h4 class="text-white-50">
+                    <label for="altura" class="form-label">Altura (cm):</label>
+                </h4>
+                <input type="number" class="form-control" id="altura" placeholder="Ingrese la altura">
+                 <h4 class="text-white-50">
+                    <label for="ancho" class="form-label">Ancho (cm):</label>
+                 </h4>
+                 <input type="number" class="form-control" id="ancho" placeholder="Ingrese el ancho">
+
+
+                 <h4 class="text-white-50">
+                    <label for="tipo" class="form-label">Tipo de Vitrina:</label>
+                 </h4>
+                 <select class="form-select" id="tipo">
+                    <option value="aluminio35">Aluminio 35 (Ancho ≤ 100 cm)</option>
+                    <option value="aluminio29">Aluminio 29 (Ancho ≥ 100 cm)</option>
+                    <option value="vidrio30">Vidrio 30 (Ancho ≤ 100 cm)</option>
+                    <option value="vidrio25">Vidrio 25 (Ancho ≥ 100 cm)</option>
+                 </select>
+
+
+
+
+                 <div class="mt-4 text-center text-white-50" id="resultado"></div>
+                 
+
+                
+                <div class="row container justify-content-center">
+                    <div class="col text-center">
+                        <button type="button" class="btn btn-primary me-2" onclick="calcularPrecio()">Calcular Precio</button>
+                    </div>
+                    <div class="col text-center">
+                        <button type="button" class="btn btn-secondary" onclick="guardarPrecio()">Guardar Precio</button>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+            <div class="col-4 mx-auto text-center">
+                <h4 class="text-white-50 text-center">Datos Almacenados</h4>
+
+                 <h4 class="text-white-50 mx-auto mt-2">Aluminio 35:</h4>
+                 <ul id="listaAluminio35" class="list-group mb-3 text-white-50 mb-5"></ul>
+
+                 <h4 class="text-white-50 mx-auto mt-2">Aluminio 29:</h4>
+                 <ul id="listaAluminio29" class="list-group mb-3 text-white-50 mb-5"></ul>  
+            </div>
+
+
+            <div class="col-4 mx-auto text-center">
+                <h4 class="text-white-50 text-uppercase text-center">Datos Almacenados</h4>
+
+                <h4 class="text-white-50 mx-auto mt-2">Vidrio 30:</h4>
+                 <ul id="listaVidrio30" class="list-group mb-3 text-white-50 mb-5"></ul>
+
+
+                 <h4 class="text-white-50 mx-auto mt-2">Vidrio 25:</h4>
+                 <ul id="listaVidrio25" class="list-group text-white-50 mb-5"></ul>
+            </div>
+
+    <div class="row text-center">
+        <h4 class="text-white-50">Suma Total de Precios Guardados:</h4>
+        <div class="mt-3 text-white-50" id="sumaTotal">Suma Total: <strong>$0.00</strong></div>
+    </div>
+
+
+
+        </div>
+        </main>
+    </div>
+</header>
+
+
+
+
+
+
+
+<script>
+        let preciosAluminio35 = [];
+        let preciosAluminio29 = [];
+        let preciosVidrio30 = [];
+        let preciosVidrio25 = [];
+
+        function calcularPrecio() {
+            const altura = parseFloat(document.getElementById('altura').value);
+            const ancho = parseFloat(document.getElementById('ancho').value);
+            const tipo = document.getElementById('tipo').value;
+            let resultado;
+            let precio = 0;
+
+            if (ancho <= 100) {
+                if (tipo === 'aluminio35' || tipo === 'vidrio30') {
+                    resultado = (altura * ancho) / 900;
+                    if (tipo === 'aluminio35') {
+                        precio = resultado * 35;
+                    } else if (tipo === 'vidrio30') {
+                        precio = resultado * 30;
+                    }
+                } else {
+                    alert("El tipo de vitrina seleccionado requiere un ancho mayor o igual a 100 cm.");
+                    return;
+                }
+            } else if (ancho >= 100) {
+                if (tipo === 'aluminio29' || tipo === 'vidrio25') {
+                    resultado = (altura * ancho) / 900;
+                    if (tipo === 'aluminio29') {
+                        precio = resultado * 29;
+                    } else if (tipo === 'vidrio25') {
+                        precio = resultado * 25;
+                    }
+                } else {
+                    alert("El tipo de vitrina seleccionado requiere un ancho menor o igual a 100 cm.");
+                    return;
+                }
+            }
+
+            document.getElementById('resultado').innerHTML = `Precio Calculado: <strong>$${precio.toFixed(2)}</strong>`;
+            return { altura, ancho, precio, tipo };
+        }
+
+        function actualizarSumaTotal() {
+            let sumaTotal = 0;
+
+            preciosAluminio35.forEach(vitrina => sumaTotal += vitrina.precio);
+            preciosAluminio29.forEach(vitrina => sumaTotal += vitrina.precio);
+            preciosVidrio30.forEach(vitrina => sumaTotal += vitrina.precio);
+            preciosVidrio25.forEach(vitrina => sumaTotal += vitrina.precio);
+
+            document.getElementById('sumaTotal').innerHTML = `Suma Total: <strong>$${sumaTotal.toFixed(2)}</strong>`;
+        }
+
+        function guardarPrecio() {
+            const vitrina = calcularPrecio();
+            if (vitrina) {
+                if (vitrina.tipo === "aluminio35") {
+                    preciosAluminio35.push(vitrina);
+                    actualizarListaPrecios(preciosAluminio35, "listaAluminio35");
+                } else if (vitrina.tipo === "aluminio29") {
+                    preciosAluminio29.push(vitrina);
+                    actualizarListaPrecios(preciosAluminio29, "listaAluminio29");
+                } else if (vitrina.tipo === "vidrio30") {
+                    preciosVidrio30.push(vitrina);
+                    actualizarListaPrecios(preciosVidrio30, "listaVidrio30");
+                } else if (vitrina.tipo === "vidrio25") {
+                    preciosVidrio25.push(vitrina);
+                    actualizarListaPrecios(preciosVidrio25, "listaVidrio25");
+                }
+                alert('Datos guardados correctamente.');
+                actualizarSumaTotal();
+            }
+        }
+
+        function actualizarListaPrecios(array, listaId) {
+            const lista = document.getElementById(listaId);
+            lista.innerHTML = '';
+            array.forEach((vitrina, index) => {
+                const listItem = document.createElement('li');
+                listItem.className = "list-group-item";
+                listItem.innerHTML = `${index + 1}. Altura: ${vitrina.altura} cm - Ancho: ${vitrina.ancho} cm - Precio: <strong>$${vitrina.precio.toFixed(2)}</strong>`;
+                lista.appendChild(listItem);
+            });
+        }
+    </script>
+
+
+
+
+    </body>
+</html>

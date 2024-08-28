@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+
+        <title>VIDRIERIA - UNIVERSAL</title>   <!-- NOMBRE DE LA PAGUINA -->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        
+       
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+    </head>
+
+
+    <body id="page-top">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+            <div class="container px-4 px-lg-5">
+                <a class="navbar-brand" href="index.html">VIDRIERIA UNIVERSAL</a>
+                <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fas fa-bars"></i>
+                </button>
+
+
+
+                     <!-- MENU -->
+              <div class="collapse navbar-collapse" id="navbarResponsive">
+                  <ul class="navbar-nav ms-auto">
+                      <li class="nav-item"><a class="nav-link" href="vidrio.html">VIDRIO</a></li>
+                      <li class="nav-item"><a class="nav-link" href="ventanas.html" >VENTANAS</a></li>
+                      <li class="nav-item"><a class="nav-link" href="puertas.html" >PUERTAS</a></li>
+                      <li class="nav-item"><a class="nav-link" href="vitrinas.html">VITRINAS</a></li>
+                      <li class="nav-item"><a class="nav-link" href="aluminio.html">ALUMINIO</a></li>
+                      <li class="nav-item"><a class="nav-link" href="galeria.html">GALERIA</a></li>
+                 </ul>
+              </div>
+
+
+
+            </div>
+        </nav>
+        <!-- Masthead Masthead Masthead Masthead Masthead Masthead-->
+        <!-- Masthead Masthead Masthead Masthead Masthead Masthead-->
+        <!-- Masthead Masthead Masthead Masthead Masthead Masthead-->
+        <!-- Masthead Masthead Masthead Masthead Masthead Masthead-->
+<header class="masthead">
+    <div class="container justify-content-center px-4 px-lg-5 d-flex h-100 align-items-center">
+        <main>
+            <h2 class="mx-auto my-5 text-uppercase text-center">Reparación de Vidrios</h2>
+        <div class="row">
+            <div class="col-3 mx-auto text-center">
+                <h4 class="text-white-50 text-center">Reparaciones</h4>
+                <h4 class="text-white-50">
+                    <label class="text-white-50 form-label" for="altura">Altura (cm):</label>
+                </h4>
+                <input type="number" class="form-control" id="altura" placeholder="Ingrese la altura del vidrio">
+                <h4 class="text-white-50">
+                    <label class="text-white-50 form-label" for="ancho">Ancho (cm):</label>
+                </h4>
+                <input type="number" class="form-control" id="ancho" placeholder="Ingrese el ancho del vidrio">
+
+
+                <h4 class="text-white-50">
+                    <label class="text-white-50 form-label mb-4" for="tipoVidrio">Tipo de Vidrio:</label>
+                 </h4>
+                 <select class="form-select mb-4" id="tipoVidrio">
+                    <option value="9">Vidrio triple (9)</option>
+                    <option value="8">Vidrio doble (8)</option>
+                    <option value="6">Vidrio catedral (6)</option>
+                    <option value="6">Vidrio semi doble (6)</option>
+                 </select>
+
+                <div class="clear"></div>
+                    <div class="result text-white-50 mt-3 mb-3 text-center" id="resultado"></div>
+                    <div class="result text-white-50 mt-3 mb-3 text-center" id="totalGuardado"></div>
+                <div class="row container justify-content-center">
+                    <div class="col text-center">
+                        <button type="button" class="opacity-75 btn btn-primary me-2" onclick="calcularPrecio()">Calcular Precio</button>
+                    </div>
+                    <div class="col text-center">
+                        <button type="button" class="opacity-75 btn btn-secondary" onclick="guardarPrecio()">Guardar Precio</button>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+
+            <div class="col-3 mx-auto text-center">
+                <h4 class="text-white-50 text-center">Vidrio Solo</h4>
+                <h4 class="text-white-50">
+                    <label class="text-white-50 form-label mb-4" for="tipoVidrioSolo">Tipo de Vidrio:</label>
+                 </h4>
+                 <select class="form-select mb-4" id="tipoVidrioSolo">
+                    <option value="8">Vidrio triple (8)</option>
+                    <option value="6">Vidrio doble (6)</option>
+                    <option value="5">Vidrio catedral (5)</option>
+                    <option value="5">Vidrio semi doble (5)</option>
+                 </select>
+
+
+                <div class="clear"></div>
+
+                <div class="result text-white-50 mt-3 mb-3 text-center" id="resultadoSolo"></div>
+                <div class="result text-white-50 mt-3 mb-3 text-center" id="totalGuardadoSolo"></div>
+
+                <div class="row container justify-content-center">
+                    <div class="col text-center">
+                        <button type="button" class="opacity-75 btn btn-primary me-2" onclick="calcularPrecioSolo()">Calcular Precio</button>
+                    </div>
+                    <div class="col text-center">
+                        <button type="button" class="opacity-75 btn btn-secondary" onclick="guardarPrecioSolo()">Guardar Precio</button>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+
+            <div class="col-3 mx-auto text-center">
+                <h4 class="text-white-50 text-center">Espejos</h4>
+
+
+                <h4 class="text-white-50">
+                    <label class="text-white-50 form-label mb-4" for="tipoEspejo">Tipo de Espejo:</label>
+                 </h4>
+                 <select class="form-select mb-4" id="tipoEspejo">
+                    <option value="6">Espejo solo (6)</option>
+                    <option value="8">Espejo de 2 líneas con bastidor (8)</option>
+                    <option value="8">Espejo de 3 líneas con bastidor (8)</option>
+                    <option value="12">Cuadros con bastidor (12)</option>
+                 </select>
+
+
+                <div class="clear"></div>
+                <div class="result text-white-50 mt-3 mb-3 text-center" id="resultadoEspejo"></div>
+                <div class="result text-white-50 mt-3 mb-3 text-center" id="totalGuardadoEspejo"></div>
+
+
+                <div class="row container justify-content-center">
+                    <div class="col text-center">
+                        <button type="button" class="opacity-75 btn btn-primary me-2" onclick="calcularPrecioEspejo()">Calcular Precio</button>
+                    </div>
+                    <div class="col text-center">
+                        <button type="button" class="opacity-75 btn btn-secondary" onclick="guardarPrecioEspejo()">Guardar Precio</button>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+            <div class="col-3 mx-auto text-center">
+                <h4 class="text-white-50 text-uppercase text-center">DATOS almacenado</h4>
+                <div class="stored-data">
+                    <h3 class="text-white-50">REPARACION</h3>
+                    <ul class="text-white-50 mb-5" id="listaPrecios"></ul>
+                </div>
+                <div class="stored-data">
+                    <h3 class="text-white-50">VIDRIO SOLO</h3>
+                    <ul class="text-white-50 mb-5" id="listaPreciosSolo"></ul>
+                </div>
+                <div class="stored-data">
+                    <h3 class="text-white-50">ESPEJO Y CON BASTIDOR</h3>
+                    <ul class="text-white-50 mb-5" id="listaPreciosEspejo"></ul>
+                </div>
+            </div>
+
+
+
+
+        </div>
+        </main>
+    </div>
+</header>
+
+
+    <script>
+        // Arrays para guardar los datos de cada vidrio y espejo
+        let vidriosGuardados = [];
+        let vidriosSoloGuardados = [];
+        let espejosGuardados = [];
+
+        function calcularPrecio() {
+            const altura = parseFloat(document.getElementById('altura').value);
+            const ancho = parseFloat(document.getElementById('ancho').value);
+            const precioPorUnidad = parseFloat(document.getElementById('tipoVidrio').value);
+            
+            if (isNaN(altura) || isNaN(ancho) || altura <= 0 || ancho <= 0) {
+                alert('Por favor, ingrese dimensiones válidas.');
+                return;
+            }
+
+            const area = (altura * ancho) / 900;
+            const precioTotal = area * precioPorUnidad;
+            document.getElementById('resultado').innerText = 'Costo Total: S/. ' + precioTotal.toFixed(2);
+            return { altura, ancho, precioTotal }; 
+        }
+
+        function guardarPrecio() {
+            const vidrio = calcularPrecio();
+            if (vidrio) {
+                vidriosGuardados.push(vidrio);
+                actualizarListaPrecios();
+                calcularTotalGuardado();
+            }
+        }
+
+        function calcularPrecioSolo() {
+            const altura = parseFloat(document.getElementById('altura').value);
+            const ancho = parseFloat(document.getElementById('ancho').value);
+            const precioPorUnidad = parseFloat(document.getElementById('tipoVidrioSolo').value);
+            
+            if (isNaN(altura) || isNaN(ancho) || altura <= 0 || ancho <= 0) {
+                alert('Por favor, ingrese dimensiones válidas.');
+                return;
+            }
+
+            const area = (altura * ancho) / 900;
+            const precioTotal = area * precioPorUnidad;
+            document.getElementById('resultadoSolo').innerText = 'Costo Total: S/. ' + precioTotal.toFixed(2);
+            return { altura, ancho, precioTotal };
+        }
+
+        function guardarPrecioSolo() {
+            const vidrio = calcularPrecioSolo();
+            if (vidrio) {
+                vidriosSoloGuardados.push(vidrio);
+                actualizarListaPreciosSolo();
+                calcularTotalGuardadoSolo();
+            }
+        }
+
+        function calcularPrecioEspejo() {
+            const altura = parseFloat(document.getElementById('altura').value);
+            const ancho = parseFloat(document.getElementById('ancho').value);
+            const precioPorUnidad = parseFloat(document.getElementById('tipoEspejo').value);
+            
+            if (isNaN(altura) || isNaN(ancho) || altura <= 0 || ancho <= 0) {
+                alert('Por favor, ingrese dimensiones válidas.');
+                return;
+            }
+
+            const area = (altura * ancho) / 900;
+            const precioTotal = area * precioPorUnidad;
+            document.getElementById('resultadoEspejo').innerText = 'Costo Total: S/. ' + precioTotal.toFixed(2);
+            return { altura, ancho, precioTotal };
+        }
+
+        function guardarPrecioEspejo() {
+            const espejo = calcularPrecioEspejo();
+            if (espejo) {
+                espejosGuardados.push(espejo);
+                actualizarListaPreciosEspejo();
+                calcularTotalGuardadoEspejo();
+            }
+        }
+
+        function actualizarListaPrecios() {
+            const lista = document.getElementById('listaPrecios');
+            lista.innerHTML = ''; 
+            vidriosGuardados.forEach((vidrio, index) => {
+                const listItem = document.createElement('li');
+                listItem.textContent = `${index + 1}. Ancho: ${vidrio.ancho} cm, Altura: ${vidrio.altura} cm - Precio: S/. ${vidrio.precioTotal.toFixed(2)}`;
+                lista.appendChild(listItem);
+            });
+        }
+
+        function actualizarListaPreciosSolo() {
+            const lista = document.getElementById('listaPreciosSolo');
+            lista.innerHTML = ''; 
+            vidriosSoloGuardados.forEach((vidrio, index) => {
+                const listItem = document.createElement('li');
+                listItem.textContent = `${index + 1}. Ancho: ${vidrio.ancho} cm, Altura: ${vidrio.altura} cm - Precio: S/. ${vidrio.precioTotal.toFixed(2)}`;
+                lista.appendChild(listItem);
+            });
+        }
+
+        function actualizarListaPreciosEspejo() {
+            const lista = document.getElementById('listaPreciosEspejo');
+            lista.innerHTML = ''; 
+            espejosGuardados.forEach((espejo, index) => {
+                const listItem = document.createElement('li');
+                listItem.textContent = `${index + 1}. Ancho: ${espejo.ancho} cm, Altura: ${espejo.altura} cm - Precio: S/. ${espejo.precioTotal.toFixed(2)}`;
+                lista.appendChild(listItem);
+            });
+        }
+
+        function calcularTotalGuardado() {
+            const total = vidriosGuardados.reduce((sum, vidrio) => sum + vidrio.precioTotal, 0);
+            document.getElementById('totalGuardado').innerText = 'Total Acumulado: S/. ' + total.toFixed(2);
+        }
+
+        function calcularTotalGuardadoSolo() {
+            const total = vidriosSoloGuardados.reduce((sum, vidrio) => sum + vidrio.precioTotal, 0);
+            document.getElementById('totalGuardadoSolo').innerText = 'Total Acumulado: S/. ' + total.toFixed(2);
+        }
+
+        function calcularTotalGuardadoEspejo() {
+            const total = espejosGuardados.reduce((sum, espejo) => sum + espejo.precioTotal, 0);
+            document.getElementById('totalGuardadoEspejo').innerText = 'Total Acumulado: S/. ' + total.toFixed(2);
+        }
+    </script>
+    </body>
+</html>

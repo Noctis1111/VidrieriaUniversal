@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+
+        <title>VIDRIERIA - UNIVERSAL</title>   <!-- NOMBRE DE LA PAGUINA -->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        
+       
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+    </head>
+
+
+    <body id="page-top">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+            <div class="container px-4 px-lg-5">
+                <a class="navbar-brand" href="index.html">VIDRIERIA UNIVERSAL</a>
+                <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fas fa-bars"></i>
+                </button>
+
+
+
+                     <!-- MENU -->
+              <div class="collapse navbar-collapse" id="navbarResponsive">
+                  <ul class="navbar-nav ms-auto">
+                      <li class="nav-item"><a class="nav-link" href="vidrio.html">VIDRIO</a></li>
+                      <li class="nav-item"><a class="nav-link" href="ventanas.html" >VENTANAS</a></li>
+                      <li class="nav-item"><a class="nav-link" href="puertas.html" >PUERTAS</a></li>
+                      <li class="nav-item"><a class="nav-link" href="vitrinas.html">VITRINAS</a></li>
+                      <li class="nav-item"><a class="nav-link" href="aluminio.html">ALUMINIO</a></li>
+                      <li class="nav-item"><a class="nav-link" href="galeria.html">GALERIA</a></li>
+                 </ul>
+              </div>
+
+
+
+            </div>
+        </nav>
+        <!-- Masthead-->
+<header class="masthead">
+    <div class="container justify-content-center px-4 px-lg-5 d-flex h-100 align-items-center">
+        <main>
+            <h2 class="mx-auto my-5 text-uppercase text-center">Puertas</h2>
+        <div class="row">
+            <div class="col-3 mx-auto text-center">
+                <h4 class="text-white-50 text-center">Puertas con Chapa</h4>
+
+
+
+
+                <h4 class="text-white-50">
+                    <label class="text-white-50" for="alturaPuerta">Altura (cm):</label>
+                </h4>
+                <input type="number" class="form-control" id="alturaPuerta" placeholder="Ingrese la altura de la puerta">
+                 <h4 class="text-white-50">
+                    <label class="text-white-50 mb-3" for="anchoPuerta">Ancho (cm):</label>
+                 </h4>
+                 <input type="number" class="form-control" id="anchoPuerta" placeholder="Ingrese el ancho de la puerta">
+
+
+                 <h4 class="text-white-50">
+                    <label class="text-white-50" for="tipoPuerta" >Tipo de Puerta:</label>
+                 </h4>
+                 <select class="form-select  mb-4" id="tipoPuerta">
+                    <option value="20">Puerta con chapa (20 por unidad)</option>
+                    <option value="18">Puerta con chapa (18 por unidad)</option>
+                 </select>
+
+
+                <div class="text-white-50  mb-3 text-center"  id="resultadoPuerta"></div>
+
+                
+                <div class="row container justify-content-center">
+                    <div class="col text-center">
+                        <button type="button" class="opacity-75 btn btn-primary me-2" onclick="calcularPrecio('Puerta')">Calcular Precio</button>
+                    </div>
+                    <div class="col text-center">
+                        <button type="button" class="opacity-75 btn btn-secondary" onclick="guardarPrecio('Puerta')">Guardar Precio</button>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+
+
+            <div class="col-3 mx-auto text-center">
+                <h4 class="text-white-50 text-center">Puerta y Manpara con Paflón</h4>
+
+
+                <h4 class="text-white-50">
+                    <label class="text-white-50" for="alturaPaflon">Altura (cm):</label>
+                </h4>
+                <input type="number" class="form-control" id="alturaPaflon" placeholder="Ingrese la altura de la puerta o manpara">
+                 <h4 class="text-white-50">
+                    <label class="form-label mb-3" for="anchoPaflon">Ancho (cm):</label>
+                 </h4>
+                 <input type="number" class="form-control" id="anchoPaflon" placeholder="Ingrese el ancho de la puerta o manpara">
+
+
+                 <h4 class="text-white-50">
+                    <label class="text-white-50" for="tipoPaflon">Tipo:</label>
+                 </h4>
+                 <select class="form-select   mb-4" id="tipoPaflon">
+                    <option value="28">Puerta y manpara con paflón (28 por unidad)</option>
+                 </select>
+
+
+
+
+                <div class="text-white-50  mb-3 text-center" id="resultadoPaflon"></div>
+
+                <div class="row container justify-content-center">
+                    <div class="col text-center">
+                        <button type="button" class="opacity-75 btn btn-primary me-2" onclick="calcularPrecio('Paflon')">Calcular Precio</button>
+                    </div>
+                    <div class="col text-center">
+                        <button type="button" class="opacity-75 btn btn-secondary" onclick="guardarPrecio('Paflon')">Guardar Precio</button>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+
+            <div class="col-3 mx-auto text-center">
+                <h4 class="text-white-50 text-center">Manpara en Estructura</h4>
+
+
+
+                <h4 class="text-white-50">
+                    <label class="text-white-50" for="alturaManpara">Altura (cm):</label>
+                </h4>
+                <input type="number" class="form-control" id="alturaManpara" placeholder="Ingrese la altura de la manpara">
+                 <h4 class="text-white-50">
+                    <label class="text-white-50 mb-3" for="anchoManpara">Ancho (cm):</label>
+                 </h4>
+                 <input type="number" class="form-control" id="anchoManpara" placeholder="Ingrese el ancho de la manpara">
+
+
+                 <h4 class="text-white-50">
+                    <label class="text-white-50" for="tipoManpara">Tipo de Manpara:</label>
+                 </h4>
+                 <select class="form-select mb-4" id="tipoManpara">
+                    <option value="20">Manpara triple en estructura (20 por unidad)</option>
+                    <option value="20">Manpara sistema de 8mm (20 por unidad)</option>
+                 </select>
+
+
+
+                <div class="text-white-50  mb-3 text-center" id="resultadoManpara"></div>
+
+                <div class="row container justify-content-center">
+                    <div class="col text-center">
+                        <button type="button" class="opacity-75 btn btn-primary me-2" onclick="calcularPrecio('Manpara')">Calcular Precio</button>
+                    </div>
+                    <div class="col text-center">
+                        <button type="button" class="opacity-75 btn btn-secondary" onclick="guardarPrecio('Manpara')">Guardar Precio</button>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+
+            <div class="col-3 mx-auto text-center">
+                <h4 class="text-white-50 text-uppercase text-center">Datos Almacenados</h4>
+
+
+
+
+
+                <div class="datos-almacenados">
+                    <h4 class="text-white-50">Datos Almacenados - Puertas con Chapa:</h4>
+                    <ul class="list-group mb-3 text-white-50" id="listaPuerta"></ul>
+
+                    <h4 class="text-white-50">Datos Almacenados - Puerta y Manpara con Paflón:</h4>
+                    <ul class="list-group mb-3 text-white-50" id="listaPaflon"></ul>
+
+                    <h4 class="text-white-50">Datos Almacenados - Manpara en Estructura:</h4>
+                    <ul class="list-group mb-3 text-white-50" id="listaManpara"></ul>
+              </div>
+
+
+
+              <div class="container px-4 text-center">
+                <div class="row gx-5">
+                    <div class="col">
+                        <h3 class="text-white-50">TOTAL GUARDADO</h3>
+                        <div class="p-3 text-white-50" id="totalGuardado"></div>
+                    </div>
+                </div>
+              </div>
+              <div id="totalGuardado"></div>
+
+
+
+                
+            </div>
+
+
+
+
+        </div>
+        </main>
+    </div>
+</header>
+
+
+
+
+
+
+
+<script>
+        let listaPuerta = [];
+        let listaPaflon = [];
+        let listaManpara = [];
+
+        function calcularPrecio(tipo) {
+            let altura, ancho, precioPorUnidad, resultadoDiv;
+
+            if (tipo === 'Puerta') {
+                altura = parseFloat(document.getElementById('alturaPuerta').value);
+                ancho = parseFloat(document.getElementById('anchoPuerta').value);
+                precioPorUnidad = parseFloat(document.getElementById('tipoPuerta').value);
+                resultadoDiv = document.getElementById('resultadoPuerta');
+            } else if (tipo === 'Paflon') {
+                altura = parseFloat(document.getElementById('alturaPaflon').value);
+                ancho = parseFloat(document.getElementById('anchoPaflon').value);
+                precioPorUnidad = parseFloat(document.getElementById('tipoPaflon').value);
+                resultadoDiv = document.getElementById('resultadoPaflon');
+            } else if (tipo === 'Manpara') {
+                altura = parseFloat(document.getElementById('alturaManpara').value);
+                ancho = parseFloat(document.getElementById('anchoManpara').value);
+                precioPorUnidad = parseFloat(document.getElementById('tipoManpara').value);
+                resultadoDiv = document.getElementById('resultadoManpara');
+            }
+
+            if (isNaN(altura) || isNaN(ancho) || altura <= 0 || ancho <= 0) {
+                alert('Por favor, ingrese dimensiones válidas.');
+                return;
+            }
+
+            const area = (altura * ancho) / 900;
+            const precioTotal = area * precioPorUnidad;
+
+            resultadoDiv.innerHTML = `Costo Total: S/.${precioTotal.toFixed(2)}`;
+
+            return { altura, ancho, precioTotal };
+        }
+
+        function guardarPrecio(tipo) {
+            const ventana = calcularPrecio(tipo);
+            if (!ventana) return;
+
+            let lista, listaId;
+
+            if (tipo === 'Puerta') {
+                lista = listaPuerta;
+                listaId = 'listaPuerta';
+            } else if (tipo === 'Paflon') {
+                lista = listaPaflon;
+                listaId = 'listaPaflon';
+            } else if (tipo === 'Manpara') {
+                lista = listaManpara;
+                listaId = 'listaManpara';
+            }
+
+            lista.push(ventana);
+            actualizarListaPrecios(lista, listaId);
+        }
+
+        function actualizarListaPrecios(lista, listaId) {
+            const ul = document.getElementById(listaId);
+            ul.innerHTML = '';
+            lista.forEach((item, index) => {
+                const li = document.createElement('li');
+                li.innerHTML = `${index + 1}. Ancho: ${item.ancho} cm, Altura: ${item.altura} cm - Precio: S/.${item.precioTotal.toFixed(2)}`;
+                ul.appendChild(li);
+            });
+
+            calcularTotalGuardado();
+        }
+
+        function calcularTotalGuardado() {
+            const totalPuerta = listaPuerta.reduce((sum, item) => sum + item.precioTotal, 0);
+            const totalPaflon = listaPaflon.reduce((sum, item) => sum + item.precioTotal, 0);
+            const totalManpara = listaManpara.reduce((sum, item) => sum + item.precioTotal, 0);
+            const total = totalPuerta + totalPaflon + totalManpara;
+//aqui sale el total
+            document.getElementById('totalGuardado').innerHTML = 'S/.' + total.toFixed(2);
+        }
+
+
+    </script>
+
+    </body>
+</html>
